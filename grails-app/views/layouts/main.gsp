@@ -6,12 +6,12 @@
     <asset:stylesheet src="application.css"/>
     <asset:stylesheet src="bootstrap.min.css"/>
     <asset:stylesheet src="dataTables.bootstrap.min.css"/>
-    <asset:stylesheet src="jquery.dataTables.min.js"/>
 
     <asset:javascript src="application.js"/>
     <asset:javascript src="jquery-3.3.1.min.js"/>
     <asset:javascript src="jquery.dataTables.min.js"/>
     <asset:javascript src="dataTables.bootstrap.min.js"/>
+    <asset:javascript src="custom.js"/>
     <g:layoutHead/>
 </head>
 

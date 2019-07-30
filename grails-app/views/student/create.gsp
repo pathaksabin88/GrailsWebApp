@@ -2,12 +2,15 @@
 <head>
     <meta name="layout" content="main">
     <title>Create Student</title>
+    <script>
+
+    </script>
 </head>
 <body>
 <br><br>
 
 %{--<g:form controller="student" action="save">--}%
-<form action="${createLink(controller: "student", action: "save")}">
+<form action="${createLink(controller: "student", action: "save")}" onsubmit="return validateStudentForm();">
     <div class="form-group">
         <label for="rollNumber">Roll Number</label>
         <input type="number" class="form-control" id="rollNumber" aria-describedby="rollNumberHelp" placeholder="Enter Roll Number" name="rollNumber">
