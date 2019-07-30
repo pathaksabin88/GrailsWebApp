@@ -1,5 +1,8 @@
 package grailswebapp
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured('permitAll')
 class StudentController {
 
     def index() {
@@ -7,10 +10,12 @@ class StudentController {
         [stdList: studentList]
     }
 
+    @Secured('ROLE_ADMIN')
     def create(){
 
     }
 
+    @Secured('ROLE_ADMIN')
     def save(){
 
         Student st = new Student()
@@ -26,6 +31,7 @@ class StudentController {
 
     }
 
+    @Secured('ROLE_ADMIN')
     def edit(){
 
         def id = params.id
@@ -34,7 +40,7 @@ class StudentController {
 
     }
 
-
+    @Secured('ROLE_ADMIN')
     def update(){
 
         def id = params.id
@@ -51,7 +57,7 @@ class StudentController {
 
     }
 
-
+    @Secured('ROLE_ADMIN')
     def delete(){
 
         def id = params.id

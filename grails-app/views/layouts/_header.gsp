@@ -31,5 +31,15 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <sec:ifLoggedIn>
+            <form action="${createLink(controller: 'logout')}" method="POST">
+                <input type="submit" value="Logout" class="">
+            </form>
+
+            %{--<a href="${createLink(controller: 'logout')}" class="black-text"> Logout </a>--}%
+        </sec:ifLoggedIn>
+        <sec:ifNotLoggedIn>
+            <a href="${createLink(controller: 'login')}">Login</a>
+        </sec:ifNotLoggedIn>
     </div>
 </nav>
