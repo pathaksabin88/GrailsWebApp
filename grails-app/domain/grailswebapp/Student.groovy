@@ -7,6 +7,7 @@ class Student {
     String address
     int age
     String grade
+    String profilePicture
 
     static constraints = {
     }

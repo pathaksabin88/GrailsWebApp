@@ -23,6 +23,10 @@ class BootStrap {
 
             UserRole.findOrSaveWhere(role: roleUser, user: user)
         }
+
+        String requiredDir = servletContext.getRealPath("/")+"profilePicture/"
+
+        (new File(requiredDir).exists())?:(new File(requiredDir).mkdir())
     }
     def destroy = {
     }

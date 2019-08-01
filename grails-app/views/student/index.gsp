@@ -32,7 +32,7 @@
                 <td>${st.address}</td>
                 <td>${st.age}</td>
                 <td>${st.grade}</td>
-                <td><a href="${createLink(controller: "student", action: "edit", params: [id:st.id])}">Edit</a> || <a href="${createLink(controller: "student", action: "delete", params: [id:st.id])}">Delete</a></td>
+                <td><a href="${createLink(controller: "student", action: "show", params: [id:st.id])}">View</a> || <a href="${createLink(controller: "student", action: "edit", params: [id:st.id])}">Edit</a> || <a href="${createLink(controller: "student", action: "delete", params: [id:st.id])}">Delete</a></td>
             </tr>
         </g:each>
     </tbody>
