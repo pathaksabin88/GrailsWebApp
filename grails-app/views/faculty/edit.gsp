@@ -1,40 +1,30 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'faculty.label', default: 'Faculty')}" />
-        <title><g:message code="default.edit.label" args="[entityName]" /></title>
-    </head>
-    <body>
-        <a href="#edit-faculty" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="edit-faculty" class="content scaffold-edit" role="main">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-            </g:if>
-            <g:hasErrors bean="${this.faculty}">
-            <ul class="errors" role="alert">
-                <g:eachError bean="${this.faculty}" var="error">
-                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-                </g:eachError>
-            </ul>
-            </g:hasErrors>
-            <g:form resource="${this.faculty}" method="PUT">
-                <g:hiddenField name="version" value="${this.faculty?.version}" />
-                <fieldset class="form">
-                    <f:all bean="faculty"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                </fieldset>
-            </g:form>
-        </div>
-    </body>
+<head>
+    <meta name="layout" content="main">
+    <title>Edit Faculty</title>
+</head>
+<body>
+<br><br>
+<g:uploadForm controller="faculty" action="update" onsubmit="return validateFacultyForm();">
+    <input type="hidden" name="id" value="${faculty.id}">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Full Name" name="name" value="${faculty.name}">
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" placeholder="Address" name="address" value="${faculty.address}">
+    </div>
+    <div class="form-group">
+        <label for="department">Department</label>
+        <input type="text" class="form-control" id="department" placeholder="Department" name="department" value="${faculty.department}">
+    </div>
+    <div class="form-group">
+        <label for="contactNumber">Contact Number</label>
+        <input type="text" class="form-control" id="contactNumber" placeholder="Contact Number" name="contactNumber" value="${faculty.contactNumber}">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Update">
+</g:uploadForm>
+
+</body>
 </html>

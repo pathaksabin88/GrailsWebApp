@@ -32,7 +32,7 @@ class UserController {
         UserRole userRole = new UserRole(user: user, role: role)
         userRole.save(flush: true, failOnError: true)
 
-        def bodyOfEmail = "\nHello,"+
+        def b = "\nHello,"+
                 "\n\nThis mail is to inform you  that your account has been created for SMS"+
                 "\n\nTo log in please use the following credentials:"+
                 "\n\n\tUsername: "+ username +
@@ -42,7 +42,7 @@ class UserController {
         mailService.sendMail {
             to email
             subject "New User Credentails"
-            text bodyOfEmail
+            text b
         }
 
         redirect(action: 'index')

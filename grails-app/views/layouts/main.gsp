@@ -6,6 +6,7 @@
     <asset:stylesheet src="application.css"/>
     <asset:stylesheet src="bootstrap.min.css"/>
     <asset:stylesheet src="dataTables.bootstrap.min.css"/>
+    <asset:stylesheet src="font-awesome.min.css"/>
 
     <asset:javascript src="application.js"/>
     <asset:javascript src="jquery-3.3.1.min.js"/>

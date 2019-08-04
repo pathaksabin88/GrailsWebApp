@@ -31,7 +31,9 @@
                 <td>${user.email}</td>
                 <td>${user.username}</td>
                 <td>${UserRole.findByUser(user).role.authority}</td>
-                <td><a href="${createLink(controller: 'user', action: 'delete', params: [id: user.id])}">Delete</a></td>
+                <g:if test="${sec.loggedInUserInfo(field: 'username')!=user.username}">
+                    <td><a href="${createLink(controller: 'user', action: 'delete', params: [id: user.id])}"><i class="fa fa-remove alert-danger"></i></a></td>
+                </g:if>
             </tr>
         </g:each>
     </tbody>

@@ -7,6 +7,20 @@
             var table = $('#studentTable').DataTable();
             $( table.table().container() ).removeClass( 'form-inline' );
         } );
+        function getStudentDetails(id) {
+            var URL="${createLink(controller:'student',action:'getStudentDetails')}";
+            $.ajax({
+                url:URL,
+                data:"id="+id,
+                type:'post',
+                success: function (result) {
+                    document.getElementById('studentDetails').innerHTML = result;
+                },
+                error: function () {
+                    document.getElementById('studentDetails').innerHTML = "Could not Get Student Details";
+                }
+            })
+        }
     </script>
 </head>
 <body>
@@ -32,11 +46,12 @@
                 <td>${st.address}</td>
                 <td>${st.age}</td>
                 <td>${st.grade}</td>
-                <td><a href="${createLink(controller: "student", action: "show", params: [id:st.id])}">View</a> || <a href="${createLink(controller: "student", action: "edit", params: [id:st.id])}">Edit</a> || <a href="${createLink(controller: "student", action: "delete", params: [id:st.id])}">Delete</a></td>
+                <td><a href="#" onclick="getStudentDetails(${st.id})"><i class="fa fa-eye"></i></a> || <a href="${createLink(controller: "student", action: "edit", params: [id:st.id])}"><i class="fa fa-edit"></i></a> || <a href="${createLink(controller: "student", action: "delete", params: [id:st.id])}"><i class="fa fa-remove alert-danger"></i></a></td>
             </tr>
         </g:each>
     </tbody>
 </table>
 
+<div id="studentDetails" class="text-center"></div>
 </body>
 </html>

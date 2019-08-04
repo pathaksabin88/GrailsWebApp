@@ -74,6 +74,11 @@ class StudentController {
 
         def id = params.id
         def st = Student.findById(id)
+        def profilePictureToDelete = servletContext.getRealPath("/")+"profilePicture/"+st.profilePicture
+        File file = new File(profilePictureToDelete)
+        if(file.exists()){
+            file.delete()
+        }
         st.delete(flush: true,failOnError: true)
         redirect(controller: "student", action: "index")
 
@@ -99,6 +104,11 @@ class StudentController {
     def show(){
         def student = Student.findById(params.id)
         [student: student]
+    }
+
+    def getStudentDetails(){
+        def student = Student.findById(params.id)
+        render(template: 'studentDetails', model: [student: student])
     }
 
 }
